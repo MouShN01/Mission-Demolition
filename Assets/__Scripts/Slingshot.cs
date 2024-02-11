@@ -8,6 +8,10 @@ public class Slingshot : MonoBehaviour
     [Header("Set in Inspector")]
     public GameObject prefabProjectile;
     public float velocityMult = 8f;
+    public LineRenderer[] lineRenderers;
+    public Transform[] stripPositions;
+    public Transform center;
+    public Transform idlePos;
 
     [Header("Set Dynamically")]
     public GameObject launchPoint;
@@ -17,6 +21,14 @@ public class Slingshot : MonoBehaviour
 
     private Rigidbody projectileRigidbody;
 
+
+    private void Start()
+    {
+        lineRenderers[0].positionCount = 2;
+        lineRenderers[1].positionCount = 2;
+        lineRenderers[0].SetPosition(0, stripPositions[0].position);
+        lineRenderers[1].SetPosition(0, stripPositions[1].position);
+    }
     static public Vector3 LAUNCH_POS
     {
         get
@@ -62,7 +74,11 @@ public class Slingshot : MonoBehaviour
 
     private void Update()
     {
-        if (!aimingMode) return;
+        if (!aimingMode)
+        {
+            ResetStrips();
+            return;
+        }
 
         Vector3 mousePos2D = Input.mousePosition;
         mousePos2D.z = -Camera.main.transform.position.z;
@@ -79,7 +95,8 @@ public class Slingshot : MonoBehaviour
 
         Vector3 projPos = launchPos + mouseDelta;
         projectile.transform.position = projPos;
-        if(Input.GetMouseButtonUp(0))
+        SetStrips(projPos);
+        if (Input.GetMouseButtonUp(0))
         {
             aimingMode = false;
             projectileRigidbody.isKinematic = false;
@@ -89,5 +106,16 @@ public class Slingshot : MonoBehaviour
             MissionDemolition.ShotFired();
             ProjectileLine.S.poi = projectile;
         }
+    }
+
+    void ResetStrips()
+    {
+        SetStrips(idlePos.position);
+    }
+
+    void SetStrips(Vector3 position)
+    {
+        lineRenderers[0].SetPosition(1, position);
+        lineRenderers[1].SetPosition(1, position);
     }
 }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum GameMode
 {
@@ -16,7 +18,7 @@ public class MissionDemolition : MonoBehaviour
     [Header("Set in Inspector")]
     public Text uitLevel;
     public Text uitShots;
-    public Text uitButton;
+    public TMP_Text uitButton;
     public Vector3 castlePos;
     public GameObject[] castles;
 
@@ -73,6 +75,7 @@ public class MissionDemolition : MonoBehaviour
 
         if((mode == GameMode.playing) &&Goal.goalMet)
         {
+            SaveManager.Instance.levelsRecs[level] = shotsTaken;
             mode = GameMode.levelEnd;
             SwitchView("Show Both");
             Invoke("NextLevel", 2f);
@@ -115,5 +118,11 @@ public class MissionDemolition : MonoBehaviour
     public static void ShotFired()
     {
         S.shotsTaken++;
+    }
+
+    public void BackToMainMenu()
+    {
+        SaveManager.Instance.SaveData();
+        SceneManager.LoadScene(0);
     }
 }
