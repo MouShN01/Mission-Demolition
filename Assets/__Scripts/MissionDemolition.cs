@@ -16,11 +16,12 @@ public class MissionDemolition : MonoBehaviour
     static private MissionDemolition S;
 
     [Header("Set in Inspector")]
-    public Text uitLevel;
-    public Text uitShots;
+    public TMP_Text uitLevel;
+    public TMP_Text uitShots;
     public TMP_Text uitButton;
     public Vector3 castlePos;
     public GameObject[] castles;
+    public ParticleSystem particle;
 
     [Header("Set Dynamically")]
     public int level;
@@ -50,6 +51,12 @@ public class MissionDemolition : MonoBehaviour
             Destroy(pTemp);
         }
 
+        GameObject[] bgos = GameObject.FindGameObjectsWithTag("Broken");
+        foreach (GameObject go in bgos)
+        {
+            Destroy(go);
+        }
+
         castle = Instantiate<GameObject>(castles[level]);
         castle.transform.position = castlePos;
         shotsTaken = 0;
@@ -73,12 +80,14 @@ public class MissionDemolition : MonoBehaviour
     {
         UpdateGUI();
 
-        if((mode == GameMode.playing) &&Goal.goalMet)
+        if((mode == GameMode.playing) && Goal.goalMet)
         {
+            particle = ParticleSystem.FindAnyObjectByType<ParticleSystem>();
+            particle.Play();
             SaveManager.Instance.levelsRecs[level] = shotsTaken;
             mode = GameMode.levelEnd;
             SwitchView("Show Both");
-            Invoke("NextLevel", 2f);
+            Invoke("NextLevel", 5f);
         }
     }
 

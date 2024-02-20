@@ -12,6 +12,8 @@ public class Slingshot : MonoBehaviour
     public Transform[] stripPositions;
     public Transform center;
     public Transform idlePos;
+    public AudioSource src;
+    public AudioClip pulling, shot;
 
     [Header("Set Dynamically")]
     public GameObject launchPoint;
@@ -70,6 +72,15 @@ public class Slingshot : MonoBehaviour
 
         projectileRigidbody = projectile.GetComponent<Rigidbody>();
         projectileRigidbody.isKinematic = true;
+
+        src.clip = pulling;
+        src.Play();
+    }
+
+    private void OnMouseUp()
+    {
+        src.clip = shot;
+        src.Play();
     }
 
     private void Update()

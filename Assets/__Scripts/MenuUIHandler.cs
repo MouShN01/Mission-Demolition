@@ -4,19 +4,18 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MenuUIHandler : MonoBehaviour
 {
     public GameObject mainMenu;
     public GameObject statsMenu;
+    public GameObject volumeSettings;
     public TMP_Text levelOne;
     public TMP_Text levelTwo;
     public TMP_Text levelThree;
 
-    private void Start()
-    {
-        SaveManager.Instance.LoadData();
-    }
     public void NewStart()
     {
         SceneManager.LoadScene(1);
@@ -29,6 +28,7 @@ public class MenuUIHandler : MonoBehaviour
 #else
         Application.Quit();
 #endif
+        SaveManager.Instance.SaveData();
     }
 
     public void ShowStats()
@@ -41,9 +41,17 @@ public class MenuUIHandler : MonoBehaviour
 
     }
 
+    public void ShowSettings()
+    {
+        mainMenu.SetActive(false);
+        volumeSettings.SetActive(true);
+    }    
+
     public void BackToMainMenu()
     {
         mainMenu.SetActive(true);
         statsMenu.SetActive(false);
+        volumeSettings.SetActive(false);
+
     }
 }

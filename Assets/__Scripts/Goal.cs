@@ -6,6 +6,10 @@ public class Goal : MonoBehaviour
 {
     //Статическое поле, доступное любому другому коду 
     static public bool goalMet = false;
+
+    public AudioSource src;
+    public AudioClip winSound;
+
     void OnTriggerEnter(Collider other)
     {
         //Когда в область действия триггера попадает что-то, проверить, является ли это что-то снарядом
@@ -13,6 +17,11 @@ public class Goal : MonoBehaviour
         {
             //Если это снаряд, присвоить полю goalMet значение true
             Goal.goalMet = true;
+
+            src = GameObject.FindGameObjectWithTag("WinSound").GetComponent<AudioSource>();
+            src.clip = winSound;
+            src.Play();
+
             // Также изменить альфа-канал цвета-канал, чтобы увеличить непрозрачность
             Material mat = GetComponent<Renderer>().material;
             Color c = mat.color;
