@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3381418103259336691}
   - component: {fileID: 9168140524961359560}
   - component: {fileID: 5668846425257341304}
+  - component: {fileID: 252104148673439602}
   m_Layer: 0
   m_Name: prefabProjectile
   m_TagString: Projectile
@@ -133,3 +134,40 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 1
+--- !u!114 &252104148673439602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2665580401186436250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1009bad236b3e8547b10ef2e9e862483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionRadius: 10
+  explosionForce: 1000
+  colider:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  particles: {fileID: 6773749352098277788, guid: 85af2b85bd8436a4993181d712c8f918, type: 3}
+  src: {fileID: 8513575156673166925, guid: c087c55f4e0157245a333fa50a81b2a9, type: 3}

@@ -21,7 +21,6 @@ public class MissionDemolition : MonoBehaviour
     public TMP_Text uitButton;
     public Vector3 castlePos;
     public GameObject[] castles;
-    public ParticleSystem particle;
 
     [Header("Set Dynamically")]
     public int level;
@@ -82,8 +81,6 @@ public class MissionDemolition : MonoBehaviour
 
         if((mode == GameMode.playing) && Goal.goalMet)
         {
-            particle = ParticleSystem.FindAnyObjectByType<ParticleSystem>();
-            particle.Play();
             SaveManager.Instance.levelsRecs[level] = shotsTaken;
             mode = GameMode.levelEnd;
             SwitchView("Show Both");

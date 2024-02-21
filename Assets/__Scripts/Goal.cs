@@ -9,6 +9,7 @@ public class Goal : MonoBehaviour
 
     public AudioSource src;
     public AudioClip winSound;
+    public GameObject particle;
 
     void OnTriggerEnter(Collider other)
     {
@@ -21,6 +22,8 @@ public class Goal : MonoBehaviour
             src = GameObject.FindGameObjectWithTag("WinSound").GetComponent<AudioSource>();
             src.clip = winSound;
             src.Play();
+            GameObject cloneWin = (GameObject)Instantiate(particle, transform.position, Quaternion.identity);
+            Destroy(cloneWin, 5.0f);
 
             // Также изменить альфа-канал цвета-канал, чтобы увеличить непрозрачность
             Material mat = GetComponent<Renderer>().material;

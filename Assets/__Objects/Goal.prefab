@@ -120,3 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   src: {fileID: 0}
   winSound: {fileID: 8300000, guid: c1c6ac271951e29479dd06086deb1562, type: 3}
+  particle: {fileID: 8091253140918147888, guid: 4b79f2572d64f924ca5d85fd5f78df63, type: 3}
