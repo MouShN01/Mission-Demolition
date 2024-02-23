@@ -1359,7 +1359,6 @@ MonoBehaviour:
   - {fileID: 3935565341903054724, guid: 916dc0c2b0e88c54ea2cd25b354c429c, type: 3}
   - {fileID: 4728044348570861612, guid: 346e18bf25a2fc8489677098ceb2fa1c, type: 3}
   - {fileID: 3204500085219507154, guid: fedc8aca31292c241b8e6a1e25155f85, type: 3}
-  particle: {fileID: 0}
   level: 0
   levelMax: 0
   shotsTaken: 0
@@ -2713,7 +2712,7 @@ Transform:
   m_GameObject: {fileID: 1927915699}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: -12, z: 0}
+  m_LocalPosition: {x: 50, y: -13.32, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []

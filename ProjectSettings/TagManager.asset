@@ -8,6 +8,7 @@ TagManager:
   - Broken
   - WinSound
   - BreakSound
+  - Disabled
   layers:
   - Default
   - TransparentFX

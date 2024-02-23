@@ -44,7 +44,7 @@ public class MissionDemolition : MonoBehaviour
             Destroy(castle);
         }
 
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("Projectile");
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Disabled");
         foreach (GameObject pTemp in gos)
         {
             Destroy(pTemp);

@@ -14,10 +14,15 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && gameObject.tag != "Disabled")
         {
             Explode();
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        gameObject.tag = "Disabled";
     }
 
     public void Explode()

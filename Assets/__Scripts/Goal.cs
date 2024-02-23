@@ -14,7 +14,7 @@ public class Goal : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // огда в область действи€ триггера попадает что-то, проверить, €вл€етс€ ли это что-то снар€дом
-        if(other.gameObject.tag == "Projectile")
+        if(other.gameObject.tag == "Projectile" || other.gameObject.tag == "Disabled" && !goalMet)
         {
             //≈сли это снар€д, присвоить полю goalMet значение true
             Goal.goalMet = true;

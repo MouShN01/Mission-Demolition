@@ -15,7 +15,7 @@ public class MeshDestroyer : MonoBehaviour
     public float ExplodeForce = 0;
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Projectile" && this.gameObject.tag != "Broken")
+        if(collision.gameObject.tag == "Disabled" && this.gameObject.tag != "Broken")
         {
             src = GameObject.FindGameObjectWithTag("BreakSound").GetComponent<AudioSource>();
             src.clip = hit;
