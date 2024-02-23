@@ -4,3 +4,4 @@ You can also adjust the sound volume in the menu. Sound settings and statistics 
 The game has the ability to explode shells by pressing the spacebar.
 
 Gameplay demonstration: https://youtu.be/DvvNHrM1MYY
+Try it: https://play.unity.com/mg/other/webgl-builds-392749
