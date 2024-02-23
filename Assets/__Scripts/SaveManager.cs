@@ -6,7 +6,7 @@ using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
 
-    public List<int> levelsRecs = new List<int>(3);
+    public List<int> levelsRecs;
     public static SaveManager Instance { get; private set; }
 
     public float generalVolume;
@@ -58,6 +58,13 @@ public class SaveManager : MonoBehaviour
             generalVolume = data.generalV;
             musicVolume = data.musicV;
             effectsVolume = data.effectsV;
+        }
+        else 
+        {
+            levelsRecs = new List<int>(3) {0, 0, 0};
+            generalVolume = 1;
+            musicVolume = 1;
+            effectsVolume= 1;
         }
     }
 }
