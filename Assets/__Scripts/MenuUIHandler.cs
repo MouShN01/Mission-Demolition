@@ -25,6 +25,8 @@ public class MenuUIHandler : MonoBehaviour
     {
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
+#elif UNITY_WEBGL
+    Application.OpenURL("about:blank");
 #else
         Application.Quit();
 #endif
