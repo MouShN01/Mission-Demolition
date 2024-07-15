@@ -5,3 +5,6 @@ The game has the ability to explode projectiles by pressing the spacebar.
 
 Gameplay demonstration: https://youtu.be/DvvNHrM1MYY 
 Try it: https://play.unity.com/mg/other/webgl-builds-392749
+
+![Снимок экрана 2024-07-02 203424](https://github.com/user-attachments/assets/237497c5-3cf4-4e1f-bbd9-404f841ae3dd)
+
